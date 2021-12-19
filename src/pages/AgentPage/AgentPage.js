@@ -28,7 +28,7 @@ const AgentPage = () => {
   }, [location]);
   return (
     <div className='overflow-hidden'>
-      <Header btnName='login' onClick='login' />
+      <Header btnName='login' onClick='signup' />
       <main>
         <div className='container-xxl' id='hero'>
           {/* Hero Section */}

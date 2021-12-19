@@ -93,6 +93,12 @@ text {
   .img-half-mobile {
     display: none;
   }
+  .right-nav {
+    display: none;
+  }
+  .house-icon {
+    display: none;
+  }
 }
 @media (max-width: 992px) {
   .house-img {
@@ -164,6 +170,9 @@ text {
   .form-sign-up {
     margin: 2rem 0 !important;
   }
+  .right-nav {
+    display: none;
+  }
 }
 .form-sign-up {
   display: flex;
@@ -196,6 +205,18 @@ text {
   cursor: pointer;
   top: 50%;
   right: 10%;
+}
+
+.search-bar {
+  height: 3rem;
+  background: #fff;
+  padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+  outline: none;
+  border: 1px solid #f2f2f7;
+}
+
+.pointing {
+  cursor: pointer !important;
 }
 /* Small devices (landscape phones, 544px and up) */
 /* @media (min-width: 544px) {

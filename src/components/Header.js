@@ -37,17 +37,36 @@ const Header = ({ btnName, onClick }) => {
         >
           <ul className=' navbar-nav d-flex align-items-center'>
             <li className='nav-item mx-2'>
-              <a className=' nav-link' href='#'>
+              <a
+                className=' nav-link'
+                style={{ cursor: 'pointer' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
                 <h5 className='mb-0'>Company</h5>
               </a>
             </li>
             <li className='nav-item mx-2'>
-              <a className=' nav-link' href='#'>
+              <a
+                className=' nav-link'
+                style={{ cursor: 'pointer' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                }}
+              >
                 <h5 className='mb-0'>Ebooks</h5>
               </a>
             </li>
             <li className='nav-item mx-2'>
-              <a className=' nav-link' href='#'>
+              <a
+                className=' nav-link'
+                style={{ cursor: 'pointer' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate('/chat');
+                }}
+              >
                 <h5 className='mb-0'>Contact Us</h5>
               </a>
             </li>

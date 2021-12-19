@@ -1,0 +1,226 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Metropolis, sans-serif !important;
+  color: #161831 !important;
+}
+
+h6 {
+  font-weight: 500 !important;
+  letter-spacing: 0.5em !important;
+}
+h3,
+h4,
+h5 {
+  font-weight: 700 !important;
+}
+h1,
+h2 {
+  font-weight: 800 !important;
+}
+
+text {
+  font-weight: 500;
+  font-size: 18px;
+}
+.num-box {
+  font-weight: 600 !important;
+  width: 2em;
+  height: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 0.5em;
+}
+
+.btn-app {
+  border-radius: 1rem !important;
+}
+
+.card-border {
+  border-radius: 1rem !important;
+}
+.btn-app:hover {
+  box-shadow: 0.2rem 0.2rem 1.5rem #161831;
+  transition: 0.5s ease-in-out;
+}
+
+.agent-box {
+  position: relative;
+  margin-top: 6rem;
+  margin-bottom: 5rem;
+  background: #161831;
+  border-radius: 1rem;
+  padding: 3rem 0.5rem 3rem 3.5rem;
+}
+
+.dp-img {
+  object-fit: cover;
+  border-radius: 50%;
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.star-rate {
+  background: #fdf4e5 !important ;
+  border-radius: 0.6rem;
+  height: 45px;
+  width: 75px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.phone-form {
+  margin-top: 2rem;
+  position: relative;
+  width: 40%;
+  padding: 0;
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .phone-form {
+    width: 100%;
+  }
+  .img-half-mobile {
+    display: none;
+  }
+}
+@media (max-width: 992px) {
+  .house-img {
+    display: none;
+  }
+}
+
+.get-btn-num {
+  position: absolute;
+  right: 5px;
+  background-color: #161831;
+  color: #fff;
+  border-radius: 12px;
+  text-transform: none;
+  width: 33%;
+  height: 61px;
+}
+
+.get-btn-num:hover {
+  background-color: #161831;
+  color: #fff;
+  box-shadow: 1px 1px 15px #161831;
+  transition: 0.5s ease-in-out;
+}
+
+/* Agent Page */
+
+.feature-icon {
+  background: #f0f9fc;
+  border-radius: 1rem;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-box {
+  border-radius: 1.5rem;
+  background: #fff;
+  box-shadow: 0px 20px 130px rgba(81, 81, 81, 0.07);
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.choose-box {
+  background: #257aa1;
+  border-radius: 1.5rem;
+  /* width: 350px; */
+  height: 300px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* signup */
+.sign-up-hero {
+  background: #0c3784;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 544px) {
+  .sign-up-hero {
+    min-height: 60vh !important;
+  }
+  .form-sign-up {
+    margin: 2rem 0 !important;
+  }
+}
+.form-sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-form-input {
+  width: 100%;
+  height: 3rem;
+  background: #f2f2f7;
+  border: 2px solid #f2f2f7 !important;
+  border-radius: 0.5rem;
+  font-size: 18px;
+  padding: 0.5rem;
+}
+
+.custom-form-input:focus {
+  background: #fff;
+  outline: none;
+  border: 2px solid #28b8ea !important;
+  transition: 0.4s ease;
+}
+.custom-select {
+  cursor: pointer;
+}
+
+.eye-btn {
+  cursor: pointer;
+  top: 50%;
+  right: 10%;
+}
+/* Small devices (landscape phones, 544px and up) */
+/* @media (min-width: 544px) {
+  h3 {
+    font-size: 1.5rem !important;
+  }
+} */
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+/* @media (min-width: 768px) {
+  h3 {
+    font-size: 2rem !important;
+  }
+} */
+
+/* Large devices (desktops, 992px and up) */
+/* @media (min-width: 992px) {
+  h3 {
+    font-size: 2.5rem !important;
+  }
+} */
+
+/* Extra large devices (large desktops, 1200px and up) */
+/* @media (min-width: 1200px) {
+  h3 {
+    font-size: 3rem !important;
+  }
+} */

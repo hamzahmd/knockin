@@ -1,10 +1,8 @@
 FROM node:14.16.1
 
-WORKDIR /usr/src/mydividendtracker/app
-
-RUN npm ci --only=production
-
-RUN npm run build
-
-# start services
+WORKDIR /app
+COPY package.json ./
+COPY package-lock.json ./
+COPY ./ ./
+RUN npm i
 CMD ["npm", "run", "start"]

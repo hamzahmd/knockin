@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/knockin-logo.png';
-import property from '../assets/screenheader/property.png';
-import profile from '../assets/screenheader/profilelight.png';
-import msglight from '../assets/screenheader/msg.png';
+import property from '../assets/ChatPage.js/property-muted.svg';
+import profile from '../assets/ChatPage.js/profile.svg';
+import msg from '../assets/ChatPage.js/msg-muted.svg';
 import bell from '../assets/screenheader/bell.png';
 import ProfileAvatar from '../assets/ChatPage.js/profile-avatar.png';
 import search from '../assets/ChatPage.js/search.svg';
@@ -30,20 +30,42 @@ const ProfilePage = () => {
             <h3 className='mb-0 '>Knockin</h3>
           </div>
 
-          <div className='d-flex justify-content-between mt-4 '>
-            <Link to='/property'>
-              <img
-                src={property}
-                alt='property'
-                draggable='false'
-                width='80%'
-              />
+          <div className='d-flex justify-content-center align-items-center'>
+            <Link
+              to='/property'
+              className='text-decoration-none text-muted mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #fff' }}
+              >
+                <img src={property} alt='property' draggable='false' />
+                <h5 className='text-mute m-0 mx-1 '>Properties</h5>
+              </div>
             </Link>
-            <Link to='/chat'>
-              <img src={msglight} alt='msg' draggable='false' width='80%' />
+            <Link
+              to='/chat'
+              className='text-decoration-none text-muted mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #fff' }}
+              >
+                <img src={msg} alt='msg' draggable='false' />
+                <h5 className=' m-0 mx-1 '>Message</h5>
+              </div>
             </Link>
-            <Link to='/profile'>
-              <img src={profile} alt='profile' draggable='false' width='80%' />
+            <Link
+              to='/profile'
+              className='text-decoration-none text-muted mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #28B8EA' }}
+              >
+                <img src={profile} alt='msg' draggable='false' />
+                <h5 className='text-info m-0 mx-1'>Profile</h5>
+              </div>
             </Link>
           </div>
           <div className='position-relative mt-2 right-nav'>

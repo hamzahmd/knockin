@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
-
 import Logo from '../assets/images/knockin-logo.png';
-import property from '../assets/screenheader/property.png';
-import profile from '../assets/screenheader/profile.png';
-import msglight from '../assets/screenheader/msglight.png';
+import property from '../assets/ChatPage.js/property-muted.svg';
+import profile from '../assets/ChatPage.js/profile-muted.svg';
+import msg from '../assets/ChatPage.js/message.svg';
 import bell from '../assets/screenheader/bell.png';
 import ProfileAvatar from '../assets/ChatPage.js/profile-avatar.png';
 import search from '../assets/ChatPage.js/search.svg';
@@ -29,7 +28,7 @@ import houseimg1 from '../assets/ChatPage.js/houseimg1.png';
 
 const ChatScreen = () => {
   return (
-    <div style={{ background: '#f6f6f6' }}>
+    <div style={{ background: '#f9f9f9' }}>
       <div className='container-xxl'>
         <header className='d-flex align-content-center justify-content-between'>
           <div className='d-flex align-items-center'>
@@ -44,20 +43,42 @@ const ChatScreen = () => {
             <h3 className='mb-0 '>Knockin</h3>
           </div>
 
-          <div className='d-flex justify-content-between mt-4 '>
-            <Link to='/property'>
-              <img
-                src={property}
-                alt='property'
-                draggable='false'
-                width='80%'
-              />
+          <div className='d-flex justify-content-center align-items-center'>
+            <Link
+              to='/property'
+              className='text-decoration-none text-muted mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #fff' }}
+              >
+                <img src={property} alt='property' draggable='false' />
+                <h5 className='text-mute m-0 mx-1 '>Properties</h5>
+              </div>
             </Link>
-            <Link to='/chat'>
-              <img src={msglight} alt='msg' draggable='false' width='80%' />
+            <Link
+              to='/chat'
+              className='text-decoration-none text-info mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #28B8EA' }}
+              >
+                <img src={msg} alt='msg' draggable='false' />
+                <h5 className=' m-0 mx-1 '>Message</h5>
+              </div>
             </Link>
-            <Link to='/profile'>
-              <img src={profile} alt='profile' draggable='false' width='80%' />
+            <Link
+              to='/profile'
+              className='text-decoration-none text-muted mx-2 h-100'
+            >
+              <div
+                className='d-flex justify-content-between align-items-center h-100'
+                style={{ borderBottom: '3.5px solid #fff' }}
+              >
+                <img src={profile} alt='msg' draggable='false' />
+                <h5 className='text-mute m-0 mx-1'>Profile</h5>
+              </div>
             </Link>
           </div>
           <div className='position-relative mt-2 right-nav'>
@@ -72,13 +93,13 @@ const ChatScreen = () => {
                 cursor: 'pointer',
               }}
             >
-              <img src={search} alt='search' />
+              <img src={search} alt='search' draggable='false' />
             </a>
             <input type='text ' className='search-bar' placeholder='Search..' />
             <Link to='/chat' className='mx-2'>
-              <img src={bell} alt='bell' />
+              <img src={bell} alt='bell' draggable='false' />
             </Link>
-            <img src={ProfileAvatar} alt='profileavatar' />
+            <img src={ProfileAvatar} alt='profileavatar' draggable='false' />
           </div>
         </header>
       </div>
@@ -102,7 +123,7 @@ const ChatScreen = () => {
               cursor: 'pointer',
             }}
           >
-            <img src={cross} alt='cross' />
+            <img src={cross} alt='cross' draggable='false' />
           </a>
           <div
             style={{
@@ -148,7 +169,7 @@ const ChatScreen = () => {
       {/* Chat Section */}
       <div className='container-xxl'>
         <div className='row mb-3'>
-          <div className='col-md-3'>
+          <div className='col-md-4'>
             <div
               style={{
                 background: '#ffffff',
@@ -218,7 +239,7 @@ const ChatScreen = () => {
             </div>
           </div>
           {/* chat */}
-          <div className='col-md-9'>
+          <div className='col-md-8'>
             <div
               style={{
                 background: '#ECF5F8',

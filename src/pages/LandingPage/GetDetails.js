@@ -46,7 +46,14 @@ const GetDetails = () => {
             }}
             containerStyle={{ borderRadius: '1rem' }}
           />
-          <button className='get-btn-num'>Get the Link</button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            className='get-btn-num'
+          >
+            Get the Link
+          </button>
         </form>
       </div>
     </div>

@@ -1,11 +1,19 @@
 import React from 'react';
 import VideoImg from '../../assets/images/videoimage.png';
+import MusicVideo from '../../assets/MusicVideo.mp4';
 
 const VideoSection = () => {
   return (
     <div className='container-xxl '>
       <div className='px-4 my-5' style={{ cursor: 'pointer' }}>
-        <img src={VideoImg} alt='video-house' width='100%' />
+        <video
+          controls
+          poster={VideoImg}
+          width='100%'
+          style={{ borderRadius: '1rem' }}
+        >
+          <source type='video/mp4' alt='video-house-knockin' src={MusicVideo} />
+        </video>
       </div>
       <div className='d-flex justify-content-around my-5 py-4'>
         <div className='text-center'>

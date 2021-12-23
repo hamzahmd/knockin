@@ -9672,6 +9672,11 @@ sass-loader@^10.0.5:
     schema-utils "^3.0.0"
     semver "^7.3.2"
 
+sassy-datepicker@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/sassy-datepicker/-/sassy-datepicker-0.6.1.tgz#c56abf20290402a9f6ab9e668afd9923e273fb46"
+  integrity sha512-HiDvy7xQV9YOa4BEgzpRIQAuFURZqcwTk55eiYA714j81u4VaoIfD2u2P0BIzIGPw9l8iCg8ww4QkJtuKvLrDg==
+
 sax@~1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"

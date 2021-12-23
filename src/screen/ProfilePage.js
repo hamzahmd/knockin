@@ -11,6 +11,9 @@ import curve from '../assets/ChatPage.js/curve.png';
 import design from '../assets/ChatPage.js/design.png';
 import houseicon from '../assets/ChatPage.js/houseicon.png';
 import cross from '../assets/ChatPage.js/Vector.png';
+import agencypic from '../assets/ProfileScreen/agencypic.png';
+import creditcard from '../assets/ProfileScreen/creditcard.png';
+import profilepic from '../assets/ProfileScreen/profilepic.png';
 import Footer from '../components/Footer';
 
 const ProfilePage = () => {
@@ -33,7 +36,7 @@ const ProfilePage = () => {
           <div className='d-flex justify-content-center align-items-center'>
             <Link
               to='/property'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -45,7 +48,7 @@ const ProfilePage = () => {
             </Link>
             <Link
               to='/chat'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -57,7 +60,7 @@ const ProfilePage = () => {
             </Link>
             <Link
               to='/profile'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -152,6 +155,8 @@ const ProfilePage = () => {
           </p>
         </div>
       </div>
+      {/* Profile Section */}
+      <div className='container-xxl'></div>
       <Footer />
     </div>
   );

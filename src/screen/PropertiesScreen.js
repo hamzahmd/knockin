@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import DatePicker from 'sassy-datepicker';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/images/knockin-logo.png';
 import property from '../assets/ChatPage.js/property.svg';
@@ -11,9 +12,26 @@ import curve from '../assets/ChatPage.js/curve.png';
 import design from '../assets/ChatPage.js/design.png';
 import houseicon from '../assets/ChatPage.js/houseicon.png';
 import cross from '../assets/ChatPage.js/Vector.png';
+import home1 from '../assets/propertyscreen/home1.png';
+import home2 from '../assets/propertyscreen/home2.png';
+import home3 from '../assets/propertyscreen/home3.png';
+import upcominghome from '../assets/propertyscreen/upcominghome.png';
+import picgroup from '../assets/propertyscreen/picgroup.png';
+import calendar from '../assets/svgs/calendar.svg';
+import clock from '../assets/svgs/clock.svg';
+import arrowdown from '../assets/svgs/arrowdown.svg';
+import trash from '../assets/svgs/trash.svg';
+import edit from '../assets/svgs/edit.svg';
+import curvedp from '../assets/ChatPage.js/profile-avatar.png';
 import Footer from '../components/Footer';
 
 const PropertiesScreen = () => {
+  const [date, setDate] = useState(new Date());
+
+  const onChange = (newDate) => {
+    console.log(`New date selected - ${newDate.toString()}`);
+    setDate(newDate);
+  };
   return (
     <div>
       <div className='container-xxl'>
@@ -33,7 +51,7 @@ const PropertiesScreen = () => {
           <div className='d-flex justify-content-center align-items-center'>
             <Link
               to='/property'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -45,7 +63,7 @@ const PropertiesScreen = () => {
             </Link>
             <Link
               to='/chat'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -57,7 +75,7 @@ const PropertiesScreen = () => {
             </Link>
             <Link
               to='/profile'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -150,6 +168,366 @@ const PropertiesScreen = () => {
           <p className='text-center pb-5 fs-6 m-0'>
             Find your dream house with your small family here
           </p>
+        </div>
+      </div>
+
+      {/* Property Section */}
+      <div className='container-xxl my-4'>
+        {/* Good Morning */}
+        <div className='d-flex justify-content-between mb-3'>
+          <div className='d-flex'>
+            <div>
+              <img src={curvedp} alt='curvedp' draggable='false' />
+            </div>
+            <div className='mx-3'>
+              <h3 className='fs-4'> Good Morning, Marilyn</h3>
+              <p className='text-info'>Thunder Road, Burlingame</p>
+            </div>
+          </div>
+          <div>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              style={{ borderRadius: '0.5rem', padding: '1rem' }}
+              type='button'
+              className=' navBtn btn btn-outline-info '
+            >
+              <div className='h5 m-0 fs-6'>Add New Property</div>
+            </button>
+          </div>
+        </div>
+
+        {/* Button Group */}
+        <div className='mb-3'>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            className='btn btn-info '
+            style={{
+              borderRadius: '0.5rem',
+              padding: '1rem',
+              marginRight: '1rem',
+            }}
+          >
+            <div className='h5 text-white m-0 fs-6'>New Property</div>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            style={{
+              borderRadius: '0.5rem',
+              padding: '1rem',
+              marginRight: '1rem',
+            }}
+            type='button'
+            className=' navBtn btn btn-outline-info '
+          >
+            <div className='h5 m-0 fs-6'>Recently Added</div>
+          </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+            }}
+            style={{ borderRadius: '0.5rem', padding: '1rem' }}
+            type='button'
+            className=' navBtn btn btn-outline-info '
+          >
+            <div className='h5 m-0 fs-6'>Last updated</div>
+          </button>
+        </div>
+
+        <div className='row'>
+          {/* Property List  */}
+          <div className='col-md-9'>
+            <div
+              style={{
+                background: '#F5F9FA',
+                borderRadius: '0.5rem',
+                marginBottom: '1rem',
+              }}
+            >
+              <div className='row p-3'>
+                <div className='col-lg-4'>
+                  <p className='text-muted m-0'>Property</p>
+                </div>
+                <div className='col-lg-2'>
+                  <p className='text-muted m-0'>Leads</p>
+                </div>
+                <div className='col-lg-1'>
+                  <p className='text-muted m-0'>Stats</p>
+                </div>
+                <div className='col-lg-2'>
+                  <p className='text-muted m-0'>Price</p>
+                </div>
+                <div className='col-lg-3'>
+                  <p className='text-muted m-0'>Status</p>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                padding: '1.5rem 1rem',
+                borderRadius: '1rem',
+                border: '1px solid #e6e6e6',
+                marginBottom: '1rem',
+              }}
+            >
+              <div className='row '>
+                <div className=' col-lg-4'>
+                  <div className='row g-3'>
+                    <div className='col-4 align-items-center py-0 '>
+                      <img
+                        src={home1}
+                        alt='home1'
+                        draggable='false'
+                        width='100%'
+                      />
+                    </div>
+                    <div className='col-8 d-flex-col justify-content-center'>
+                      <p className='text-info  m-0 my-2'>24 Aug, 2021</p>
+                      <h5 className='fs-5 m-0'>3 BHK Luxury Flat</h5>
+                      <p className='text-muted m-0'>132 Mazakin St, NY</p>
+                    </div>
+                  </div>
+                </div>
+                <div className=' col-lg-2 d-flex-col justify-content-center pt-2'>
+                  <img src={picgroup} alt='picicon' draggable='false' />
+                  <h5 className='fs-6 my-2'>+12 Others</h5>
+                </div>
+                <div className=' col-lg-1 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>15K</h5>
+                  <p className='text-muted m-0'>Views</p>
+                </div>
+                <div className='col-md-2 col-lg-2 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>$2,00,000/-</h5>
+                  <p className='text-muted m-0'>Total Price</p>
+                </div>
+                <div className='col-md-3 col-lg-3'>
+                  <div
+                    className='d-flex justify-content-between align-items-center '
+                    style={{
+                      height: '100%',
+                    }}
+                  >
+                    <a
+                      className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
+                      style={{
+                        border: '1px solid #e6e6e6',
+                        borderRadius: '0.5rem',
+                        width: '120px',
+                      }}
+                    >
+                      <h5 className='fs-6  m-0 ' style={{ color: '#519C51' }}>
+                        Active
+                      </h5>
+                      <div>
+                        <img src={arrowdown} alt='arrow' draggable='false' />
+                      </div>
+                    </a>
+                    <div>
+                      <a className='pointing mx-2'>
+                        <img src={edit} alt='edit' draggable='false' />
+                      </a>
+                      <a className='pointing mx-1'>
+                        <img src={trash} alt='trash' draggable='false' />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                padding: '1.5rem 1rem',
+                borderRadius: '1rem',
+                border: '1px solid #e6e6e6',
+                marginBottom: '1rem',
+              }}
+            >
+              <div className='row '>
+                <div className=' col-lg-4'>
+                  <div className='row g-3'>
+                    <div className='col-4 align-items-center py-0 '>
+                      <img
+                        src={home2}
+                        alt='home2'
+                        draggable='false'
+                        width='100%'
+                      />
+                    </div>
+                    <div className='col-8 d-flex-col justify-content-center'>
+                      <p className='text-info  m-0 my-2'>12 Aug, 2021</p>
+                      <h5 className='fs-5 m-0'>5 BHK Luxury Flat</h5>
+                      <p className='text-muted m-0'>132 Mazakin St, NY</p>
+                    </div>
+                  </div>
+                </div>
+                <div className=' col-lg-2 d-flex-col justify-content-center pt-2'>
+                  <img src={picgroup} alt='picicon' draggable='false' />
+                  <h5 className='fs-6 my-2'>+12 Others</h5>
+                </div>
+                <div className=' col-lg-1 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>23K</h5>
+                  <p className='text-muted m-0'>Views</p>
+                </div>
+                <div className='col-md-2 col-lg-2 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>$2,00,000/-</h5>
+                  <p className='text-muted m-0'>Total Price</p>
+                </div>
+                <div className='col-md-3 col-lg-3'>
+                  <div
+                    className='d-flex justify-content-between align-items-center '
+                    style={{
+                      height: '100%',
+                    }}
+                  >
+                    <a
+                      className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
+                      style={{
+                        border: '1px solid #e6e6e6',
+                        borderRadius: '0.5rem',
+                        width: '120px',
+                      }}
+                    >
+                      <h5 className='fs-6  m-0 ' style={{ color: '#519C51' }}>
+                        Active
+                      </h5>
+                      <div>
+                        <img src={arrowdown} alt='arrow' draggable='false' />
+                      </div>
+                    </a>
+                    <div>
+                      <a className='pointing mx-2'>
+                        <img src={edit} alt='edit' draggable='false' />
+                      </a>
+                      <a className='pointing mx-1'>
+                        <img src={trash} alt='trash' draggable='false' />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                padding: '1.5rem 1rem',
+                borderRadius: '1rem',
+                border: '1px solid #e6e6e6',
+                marginBottom: '1rem',
+              }}
+            >
+              <div className='row '>
+                <div className=' col-lg-4'>
+                  <div className='row g-3'>
+                    <div className='col-4 align-items-center py-0 '>
+                      <img
+                        src={home3}
+                        alt='home3'
+                        draggable='false'
+                        width='100%'
+                      />
+                    </div>
+                    <div className='col-8 d-flex-col justify-content-center'>
+                      <p className='text-info  m-0 my-2'>8 Aug, 2021</p>
+                      <h5 className='fs-5 m-0'>House On beach</h5>
+                      <p className='text-muted m-0'>132 Mazakin St, NY</p>
+                    </div>
+                  </div>
+                </div>
+                <div className=' col-lg-2 d-flex-col justify-content-center pt-2'>
+                  <img src={picgroup} alt='picicon' draggable='false' />
+                  <h5 className='fs-6 my-2'>+12 Others</h5>
+                </div>
+                <div className=' col-lg-1 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>132K</h5>
+                  <p className='text-muted m-0'>Views</p>
+                </div>
+                <div className='col-md-2 col-lg-2 d-flex-col justify-content-center'>
+                  <h5 className='fs-5 mt-2'>$2,00,000/-</h5>
+                  <p className='text-muted m-0'>Total Price</p>
+                </div>
+                <div className='col-md-3 col-lg-3'>
+                  <div
+                    className='d-flex justify-content-between align-items-center '
+                    style={{
+                      height: '100%',
+                    }}
+                  >
+                    <a
+                      className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
+                      style={{
+                        border: '1px solid #e6e6e6',
+                        borderRadius: '0.5rem',
+                        width: '120px',
+                      }}
+                    >
+                      <h5 className='fs-6  m-0 ' style={{ color: '#519C51' }}>
+                        Active
+                      </h5>
+                      <div>
+                        <img src={arrowdown} alt='arrow' draggable='false' />
+                      </div>
+                    </a>
+                    <div>
+                      <a className='pointing mx-2'>
+                        <img src={edit} alt='edit' draggable='false' />
+                      </a>
+                      <a className='pointing mx-1'>
+                        <img src={trash} alt='trash' draggable='false' />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className='col-md-3'>
+            {/* Calendar */}
+            <div
+              style={{
+                width: '305px',
+                padding: '1.5rem',
+                borderRadius: '1rem',
+                boxShadow: '2px 2px 10px #e6e6e6',
+                marginBottom: '1.5rem',
+              }}
+            >
+              <h5 className='fs-5'>Calender</h5>
+              <DatePicker onChange={onChange} selected={date} />
+            </div>
+            {/* Upcoming View */}
+            <div
+              style={{
+                width: '305px',
+                padding: '1.5rem',
+                borderRadius: '1rem',
+                boxShadow: '2px 2px 10px #e6e6e6',
+              }}
+            >
+              <h5 className='fs-5 '>Upcoming Viewing</h5>
+              <img
+                src={upcominghome}
+                alt='upcomign-home'
+                draggable='false'
+                width='100%'
+              />
+              <h5 className='fs-6  mt-3'>Orchard House</h5>
+              <p className='text-muted'>3746 Calvin Street, LA</p>
+              <div className='d-flex w-75 justify-content-between align-items-center'>
+                <div className='d-flex'>
+                  <img src={calendar} alt='calendar' draggable='false' />
+                  <p className='m-0 mx-1'>12/9/21</p>
+                </div>
+                <div className='d-flex'>
+                  <img src={clock} alt='clock' draggable='false' />
+                  <p className='m-0 mx-1'>11:00 AM</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Footer />

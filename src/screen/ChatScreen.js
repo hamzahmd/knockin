@@ -28,7 +28,7 @@ import houseimg1 from '../assets/ChatPage.js/houseimg1.png';
 
 const ChatScreen = () => {
   return (
-    <div style={{ background: '#f9f9f9' }}>
+    <div>
       <div className='container-xxl'>
         <header className='d-flex align-content-center justify-content-between'>
           <div className='d-flex align-items-center'>
@@ -46,7 +46,7 @@ const ChatScreen = () => {
           <div className='d-flex justify-content-center align-items-center'>
             <Link
               to='/property'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -58,7 +58,7 @@ const ChatScreen = () => {
             </Link>
             <Link
               to='/chat'
-              className='text-decoration-none text-info mx-2 h-100'
+              className='text-decoration-none text-info mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -70,7 +70,7 @@ const ChatScreen = () => {
             </Link>
             <Link
               to='/profile'
-              className='text-decoration-none text-muted mx-2 h-100'
+              className='text-decoration-none text-muted mx-3 h-100'
             >
               <div
                 className='d-flex justify-content-between align-items-center h-100'
@@ -175,6 +175,7 @@ const ChatScreen = () => {
                 background: '#ffffff',
                 borderRadius: '1rem',
                 padding: '1rem',
+                boxShadow: '2px 2px 10px #e6e6e6',
               }}
             >
               <h4 className='fs-3'>Properties</h4>
@@ -284,7 +285,7 @@ const ChatScreen = () => {
               >
                 <div className='d-flex justify-content-between align-items-center mb-4'>
                   <div className='d-flex align-items-center'>
-                    <img src={ProfileAvatar} alt='profile' />
+                    <img src={ProfileAvatar} alt='profile' draggable='false' />
                     <h5 className='m-0 mx-3'>Leo Schleifer</h5>
                   </div>
                   <h5
@@ -356,25 +357,25 @@ const ChatScreen = () => {
                 <div className='d-flex justify-content-between'>
                   <div>
                     <a className='pointing px-2'>
-                      <img src={stylefont0} alt='style0' />
+                      <img src={stylefont0} alt='style0' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont1} alt='style1' />
+                      <img src={stylefont1} alt='style1' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont2} alt='style2' />
+                      <img src={stylefont2} alt='style2' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont3} alt='style3' />
+                      <img src={stylefont3} alt='style3' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont4} alt='style4' />
+                      <img src={stylefont4} alt='style4' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont5} alt='style5' />
+                      <img src={stylefont5} alt='style5' draggable='false' />
                     </a>
                     <a className='pointing px-2'>
-                      <img src={stylefont6} alt='style6' />
+                      <img src={stylefont6} alt='style6' draggable='false' />
                     </a>
                   </div>
                   <a className='pointing'>

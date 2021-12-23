@@ -156,7 +156,95 @@ const ProfilePage = () => {
         </div>
       </div>
       {/* Profile Section */}
-      <div className='container-xxl'></div>
+      <div className='container-xxl my-5'>
+        <h2 className='fs-1 my-4'>Profile</h2>
+        <form>
+          <div className='row gy-2'>
+            <div className='col-md-6'>
+              <h5 className='fs-4'>Personal Information</h5>
+              <div className='py-3'>
+                <img src={profilepic} alt='profile' draggable='false' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>First Name</p>
+                <input type='text' className='custom-form-input' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>Last Name</p>
+                <input type='text' className='custom-form-input' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>E-mail Address </p>
+                <input type='email' className='custom-form-input' />
+              </div>
+            </div>
+
+            <div className='col-md-6'>
+              <h5 className='fs-4'>Agency Information</h5>
+              <div className='py-3'>
+                <img src={agencypic} alt='agency' draggable='false' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>Agency Name</p>
+                <input type='text' className='custom-form-input' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>Address</p>
+                <input type='text' className='custom-form-input' />
+              </div>
+              <div className='my-4 w-75'>
+                <p className='fs-6 m-0 my-1 text-secondary'>Section </p>
+                <input type='email' className='custom-form-input' />
+              </div>
+            </div>
+          </div>
+          <div className='my-2'>
+            <h5 className='fs-4'>Billing Section</h5>
+            <div className='my-4'>
+              <img src={creditcard} alt='card' draggable='false' />
+            </div>
+          </div>
+
+          <div className='row gx-5 my-4'>
+            <div className='col-md-4'>
+              <p className='fs-6 m-0 my-1 text-secondary'>
+                Credit Card Number{' '}
+              </p>
+              <input type='tel' className='custom-form-input' />
+            </div>
+            <div className='col-md-4'>
+              <p className='fs-6 m-0 my-1 text-secondary'>Billing Address</p>
+              <input type='text' className='custom-form-input' />
+            </div>
+            <div className='col-md-2'>
+              {' '}
+              <p className='fs-6 m-0 my-1 text-secondary'>Expiry</p>
+              <input type='tel' className='custom-form-input' />
+            </div>
+            <div className='col-md-2'>
+              <p className='fs-6 m-0 my-1 text-secondary'>CVV</p>
+              <input type='tel' className='custom-form-input' />
+            </div>
+          </div>
+          <div className='d-flex justify-content-center my-5'>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+              }}
+              className='btn btn-info '
+              style={{
+                borderRadius: '0.5rem',
+                padding: '0 2rem',
+                width: '30%',
+                height: '60px',
+              }}
+            >
+              <div className='h5 text-white m-0'>Save</div>
+            </button>
+          </div>
+        </form>
+      </div>
+
       <Footer />
     </div>
   );

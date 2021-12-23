@@ -178,7 +178,7 @@ const ChatScreen = () => {
                 boxShadow: '2px 2px 10px #e6e6e6',
               }}
             >
-              <h4 className='fs-3'>Properties</h4>
+              <h4 className='fs-3 my-3'>Properties</h4>
               <div className='position-relative my-2 right-nav'>
                 <a
                   onClick={(e) => {
@@ -186,12 +186,12 @@ const ChatScreen = () => {
                   }}
                   style={{
                     position: 'absolute',
-                    top: '30%',
+                    top: '25%',
                     left: '3%',
                     cursor: 'pointer',
                   }}
                 >
-                  <img src={search} alt='search' />
+                  <img src={search} alt='search' draggable='false' />
                 </a>
                 <input
                   type='text '
@@ -199,44 +199,37 @@ const ChatScreen = () => {
                   placeholder='Search..'
                 />
               </div>
-              <div
-                className='bg-light'
-                style={{
-                  padding: '0.5rem',
-                  borderRadius: '1rem',
-                }}
-              >
-                <div className='d-flex align-items-center'>
-                  <div>
-                    <img src={houseimg1} alt='house' width='75%' />
-                  </div>
-                  <div>
-                    <h5 className='m-0 fs-6'>2 BHK Luxury Flat</h5>
-                    <p className='text-secondary m-0'>
-                      132, Mazakin Street, LA.
-                    </p>
+              {/* Chat links */}
+              <a className='pointing text-decoration-none'>
+                <div className='bg-light chat-box my-3'>
+                  <div className='d-flex align-items-center'>
+                    <div>
+                      <img src={houseimg1} alt='house' width='75%' />
+                    </div>
+                    <div>
+                      <h5 className='m-0 fs-6 text-dark'>2 BHK Luxury Flat</h5>
+                      <p className='text-secondary m-0'>
+                        132, Mazakin Street, LA.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div
-                className='bg-light'
-                style={{
-                  padding: '0.5rem',
-                  borderRadius: '1rem',
-                }}
-              >
-                <div className='d-flex align-items-center my-2'>
-                  <div>
-                    <img src={houseimg1} alt='house' width='75%' />
-                  </div>
-                  <div>
-                    <h5 className='m-0 fs-6'>2 BHK Luxury Flat</h5>
-                    <p className='text-secondary m-0'>
-                      132, Mazakin Street, LA.
-                    </p>
+              </a>
+              <a className='pointing text-decoration-none '>
+                <div className='bg-light chat-box my-3'>
+                  <div className='d-flex align-items-center '>
+                    <div>
+                      <img src={houseimg1} alt='house' width='75%' />
+                    </div>
+                    <div>
+                      <h5 className='m-0 fs-6 text-dark'>2 BHK Luxury Flat</h5>
+                      <p className='text-secondary m-0'>
+                        132, Mazakin Street, LA.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
           {/* chat */}

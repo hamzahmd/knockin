@@ -483,6 +483,48 @@ const PropertiesScreen = () => {
                 </div>
               </div>
             </div>
+            {/* Pagination */}
+            <div className='d-flex justify-content-center py-3'>
+              <nav aria-label='Page navigation example'>
+                <ul className='pagination'>
+                  <li className='page-item'>
+                    <a className='page-link pointing' aria-label='Previous'>
+                      <span aria-hidden='true'>&laquo;</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing'>
+                      <span aria-hidden='true'>1</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing'>
+                      <span aria-hidden='true'>2</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing'>
+                      <span aria-hidden='true'>3</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing'>
+                      <span aria-hidden='true'>4</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing bg-info text-white'>
+                      <span aria-hidden='true'>5</span>
+                    </a>
+                  </li>
+                  <li className='page-item'>
+                    <a className='page-link pointing' aria-label='Next'>
+                      <span aria-hidden='true'>&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
           </div>
           <div className='col-md-3'>
             {/* Calendar */}

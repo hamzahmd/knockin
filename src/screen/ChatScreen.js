@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Logo from '../assets/images/knockin-logo.png';
 import property from '../assets/ChatPage.js/property-muted.svg';
@@ -22,11 +22,60 @@ import stylefont2 from '../assets/ChatPage.js/Frame2.png';
 import stylefont3 from '../assets/ChatPage.js/Frame3.png';
 import stylefont4 from '../assets/ChatPage.js/Frame4.png';
 import stylefont5 from '../assets/ChatPage.js/Frame5.png';
+import upnav from '../assets/ChatPage.js/upnav.png';
+import downnav from '../assets/ChatPage.js/downnav.png';
 import stylefont6 from '../assets/ChatPage.js/Frame6.png';
 import send from '../assets/ChatPage.js/send.png';
-import houseimg1 from '../assets/ChatPage.js/houseimg1.png';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getConversationsAction,
+  getConversationsByIdAction,
+  getUserAction,
+  sendMessageAction,
+} from '../actions/userActions';
 
 const ChatScreen = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [typeMessage, setTypeMessage] = useState('');
+  const [navOpener1, setNavOpener1] = useState(false);
+  const [navOpener2, setNavOpener2] = useState(false);
+  const userRegister = useSelector((state) => state.userRegister);
+  const { userInfo } = userRegister;
+  const getUser = useSelector((state) => state.getUser);
+  const { user } = getUser;
+  const getConversations = useSelector((state) => state.getConversations);
+  const { conversations } = getConversations;
+  const getConversationsById = useSelector(
+    (state) => state.getConversationsById
+  );
+  const { conversationsById } = getConversationsById;
+
+  const sendMessage = useSelector((state) => state.sendMessage);
+  const { messageSent } = sendMessage;
+
+  useEffect(() => {
+    if (!userInfo) {
+      navigate('/signup');
+    }
+    if (userInfo) {
+      dispatch(getUserAction());
+    }
+  }, [userInfo, navigate]);
+
+  useEffect(() => {
+    if (user) {
+      dispatch(getConversationsAction());
+    }
+  }, [user]);
+
+  const sideNav1 = () => {
+    setNavOpener1(!navOpener1);
+  };
+  const sideNav2 = () => {
+    setNavOpener2(!navOpener2);
+  };
+
   return (
     <div>
       <div className='container-xxl'>
@@ -200,36 +249,125 @@ const ChatScreen = () => {
                 />
               </div>
               {/* Chat links */}
-              <a className='pointing text-decoration-none'>
-                <div className='bg-light chat-box my-3'>
-                  <div className='d-flex align-items-center'>
-                    <div>
-                      <img src={houseimg1} alt='house' width='75%' />
+              <div className='bg-light chat-box my-3'>
+                <a onClick={sideNav1} className='pointing text-decoration-none'>
+                  <div className='d-flex align-items-center justify-content-between  '>
+                    <div className='d-flex align-items-center'>
+                      <div>
+                        <img
+                          src={
+                            conversations &&
+                            conversations[0].property.photoThumbnailUrl
+                          }
+                          alt='house'
+                          width='60px'
+                          style={{ borderRadius: '0.5rem' }}
+                        />
+                      </div>
+                      <div className='px-2'>
+                        <h5 className='m-0 fs-6 text-dark'>
+                          2 BHK Luxury Flat
+                        </h5>
+                        <p className='text-secondary m-0'>
+                          132, Mazakin Street, LA.
+                        </p>
+                      </div>
                     </div>
                     <div>
-                      <h5 className='m-0 fs-6 text-dark'>2 BHK Luxury Flat</h5>
-                      <p className='text-secondary m-0'>
-                        132, Mazakin Street, LA.
-                      </p>
+                      <img
+                        src={!navOpener1 ? downnav : upnav}
+                        alt='nav'
+                        draggable
+                      />
                     </div>
                   </div>
-                </div>
-              </a>
-              <a className='pointing text-decoration-none '>
-                <div className='bg-light chat-box my-3'>
-                  <div className='d-flex align-items-center '>
-                    <div>
-                      <img src={houseimg1} alt='house' width='75%' />
+                </a>
+                {navOpener1 &&
+                  conversations &&
+                  conversations.length > 0 &&
+                  conversations[0].property.conversations.map(
+                    (conversation, index) => (
+                      <div className='mt-3' key={index}>
+                        <a
+                          className='text-decoration-none pointing '
+                          key={index}
+                          onClick={() => {
+                            console.log(index);
+                            dispatch(getConversationsByIdAction(index));
+                          }}
+                        >
+                          <div className='conversation-box'>
+                            <h5
+                              className='m-0 fs-6 text-dark'
+                              key={conversation.id}
+                            >
+                              {conversation.firstName} {conversation.lastName}
+                            </h5>
+                          </div>
+                        </a>
+                      </div>
+                    )
+                  )}
+              </div>
+
+              {/* chat link2 */}
+              <div className='bg-light chat-box my-3'>
+                <a onClick={sideNav2} className='pointing text-decoration-none'>
+                  <div className='d-flex align-items-center justify-content-between  '>
+                    <div className='d-flex align-items-center'>
+                      <div>
+                        <img
+                          src={
+                            conversations &&
+                            conversations[1].property.photoThumbnailUrl
+                          }
+                          alt='house'
+                          width='60px'
+                          style={{ borderRadius: '0.5rem' }}
+                        />
+                      </div>
+                      <div className='px-2'>
+                        <h5 className='m-0 fs-6 text-dark'>
+                          2 BHK Luxury Flat
+                        </h5>
+                        <p className='text-secondary m-0'>
+                          132, Mazakin Street, LA.
+                        </p>
+                      </div>
                     </div>
                     <div>
-                      <h5 className='m-0 fs-6 text-dark'>2 BHK Luxury Flat</h5>
-                      <p className='text-secondary m-0'>
-                        132, Mazakin Street, LA.
-                      </p>
+                      <img
+                        src={!navOpener2 ? downnav : upnav}
+                        alt='nav'
+                        draggable
+                      />
                     </div>
                   </div>
-                </div>
-              </a>
+                </a>
+                {navOpener2 &&
+                  conversations &&
+                  conversations.length > 0 &&
+                  conversations[1].property.conversations.map(
+                    (conversation, index) => (
+                      <div className='mt-3' key={index}>
+                        <a
+                          className='text-decoration-none pointing '
+                          key={index}
+                          onClick={() => {
+                            console.log(index);
+                            dispatch(getConversationsByIdAction(index));
+                          }}
+                        >
+                          <div className='conversation-box'>
+                            <h5 className='m-0 fs-6 text-dark' key={index}>
+                              {conversation.firstName} {conversation.lastName}
+                            </h5>
+                          </div>
+                        </a>
+                      </div>
+                    )
+                  )}
+              </div>
             </div>
           </div>
           {/* chat */}
@@ -247,7 +385,10 @@ const ChatScreen = () => {
                     <img src={circledp} alt='circle-dp' draggable='false' />
                   </div>
                   <div className='px-2'>
-                    <h4 className='m-0'>Jaydon Geidt</h4>
+                    <h4 className='m-0'>
+                      {conversationsById && conversationsById.firstName}{' '}
+                      {conversationsById && conversationsById.lastName}
+                    </h4>
                     <p className='text-secondary m-0'>
                       132, Mazakin Street, New York.
                     </p>
@@ -267,6 +408,44 @@ const ChatScreen = () => {
               </div>
               <hr />
 
+              {/* REsponse Message */}
+              {messageSent && (
+                <div
+                  style={{
+                    background: '#fff',
+                    borderRadius: '1rem',
+                    padding: '1rem',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  <div className='d-flex justify-content-between align-items-center mb-4'>
+                    <div className='d-flex align-items-center'>
+                      <img
+                        src={ProfileAvatar}
+                        alt='profile'
+                        draggable='false'
+                      />
+                      <h5 className='m-0 mx-3'>
+                        {user && user.firstName} {user && user.lastName}
+                      </h5>
+                    </div>
+                    <h5
+                      className='text-warning px-3 py-2 m-0'
+                      style={{ borderRadius: '0.5rem', background: '#fff8e8' }}
+                    >
+                      Seller
+                    </h5>
+                  </div>
+                  {messageSent && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: messageSent.message,
+                      }}
+                    />
+                  )}
+                </div>
+              )}
+
               {/* message area */}
               <div
                 style={{
@@ -279,7 +458,9 @@ const ChatScreen = () => {
                 <div className='d-flex justify-content-between align-items-center mb-4'>
                   <div className='d-flex align-items-center'>
                     <img src={ProfileAvatar} alt='profile' draggable='false' />
-                    <h5 className='m-0 mx-3'>Leo Schleifer</h5>
+                    <h5 className='m-0 mx-3'>
+                      {user && user.firstName} {user && user.lastName}
+                    </h5>
                   </div>
                   <h5
                     className='text-warning px-3 py-2 m-0'
@@ -288,8 +469,16 @@ const ChatScreen = () => {
                     Seller
                   </h5>
                 </div>
+                {conversationsById && (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        conversationsById.conversationMessages[0][2].message,
+                    }}
+                  />
+                )}
 
-                <p>Good Morning, Jaydon Geidt</p>
+                {/* <p>Good Morning, Jaydon Geidt</p>
                 <p>Lorem ipsum dolor sit amet, consectetur @Knockin</p>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -303,7 +492,7 @@ const ChatScreen = () => {
                   Ut enim ad minim
                 </p>
                 <p className='m-0'>Thanks</p>
-                <h5>Jaydon</h5>
+                <h5>Jaydon</h5> */}
               </div>
 
               {/* Got message */}
@@ -318,64 +507,95 @@ const ChatScreen = () => {
               >
                 <div className='d-flex align-items-center'>
                   <img src={circledp} alt='circledp' draggable='false' />
-                  <h5 className='text-white mx-2'>Jaydon Geidt</h5>
+                  <h5 className='text-white mx-2'>
+                    {' '}
+                    {conversationsById && conversationsById.firstName}{' '}
+                    {conversationsById && conversationsById.lastName}
+                  </h5>
                 </div>
                 <hr className='bg-light' />
-                <p className='text-white'>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                {/* Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad quis nostrud exercitation ullamco laboris nisi ut
                   aliquip ex ea commodo consequat. Duis aute irure dolor in
                   reprehenderit in voluptate velit dolore eu fugiat nulla
-                  pariatur. Excepteur sint occaecat cupidatat non proident,
+                  pariatur. Excepteur sint occaecat cupidatat non proident, */}
+                <p className='text-white'>
+                  {conversationsById && (
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          conversationsById.conversationMessages[0][1].message,
+                      }}
+                    />
+                  )}
                 </p>
               </div>
 
               {/* Text Place */}
-              <div
-                style={{
-                  background: '#fff',
-                  borderRadius: '0.5rem',
-                  padding: '1.5rem',
-                  marginBottom: '1.5rem',
-                }}
-              >
-                <textarea
-                  rows='3'
-                  type='text'
-                  placeholder='Write your message here...'
-                  style={{ outline: 'none', width: '100%' }}
-                />
-                <hr />
-                <div className='d-flex justify-content-between'>
-                  <div>
-                    <a className='pointing px-2'>
-                      <img src={stylefont0} alt='style0' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont1} alt='style1' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont2} alt='style2' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont3} alt='style3' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont4} alt='style4' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont5} alt='style5' draggable='false' />
-                    </a>
-                    <a className='pointing px-2'>
-                      <img src={stylefont6} alt='style6' draggable='false' />
+              <form>
+                <div
+                  style={{
+                    background: '#fff',
+                    borderRadius: '0.5rem',
+                    padding: '1.5rem',
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  <textarea
+                    rows='3'
+                    type='text'
+                    placeholder='Write your message here...'
+                    style={{ outline: 'none', width: '100%' }}
+                    value={typeMessage}
+                    onChange={(e) => setTypeMessage(e.target.value)}
+                  />
+                  <hr />
+                  <div className='d-flex justify-content-between'>
+                    <div>
+                      <a className='pointing px-2'>
+                        <img src={stylefont0} alt='style0' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont1} alt='style1' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont2} alt='style2' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont3} alt='style3' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont4} alt='style4' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont5} alt='style5' draggable='false' />
+                      </a>
+                      <a className='pointing px-2'>
+                        <img src={stylefont6} alt='style6' draggable='false' />
+                      </a>
+                    </div>
+                    <a
+                      className='pointing'
+                      onClick={() => {
+                        const conversationId =
+                          conversationsById && conversationsById.id;
+                        const userId =
+                          conversationsById &&
+                          conversationsById.conversationMessages[0][2].userId;
+                        dispatch(
+                          sendMessageAction(conversationId, userId, typeMessage)
+                        );
+                        if (messageSent) {
+                          setTypeMessage('');
+                        }
+                      }}
+                    >
+                      <img src={send} alt='send' draggable='false' />
                     </a>
                   </div>
-                  <a className='pointing'>
-                    <img src={send} alt='send' draggable='false' />
-                  </a>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>

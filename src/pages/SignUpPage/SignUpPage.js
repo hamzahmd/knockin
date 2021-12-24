@@ -24,8 +24,9 @@ const SignUpPage = () => {
 
   useEffect(() => {
     if (userInfo) {
+      navigate('/chat');
     }
-  }, [userInfo]);
+  }, [userInfo, navigate]);
 
   const CreateAccount = (e) => {
     e.preventDefault();

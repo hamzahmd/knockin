@@ -1,19 +1,19 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { 
-  userRegisterReducer, 
+import {
+  userRegisterReducer,
   getUserReducer,
   getConversationsByIdReducer,
   getConversationsReducer,
-  sendMessageReducer 
+  sendMessageReducer,
 } from './reducers/userReducers';
 
 const reducer = combineReducers({
   userRegister: userRegisterReducer,
   getUser: getUserReducer,
   getConversations: getConversationsReducer,
-  getConversationsById: getConversationsByIdReducer,,
+  getConversationsById: getConversationsByIdReducer,
   sendMessage: sendMessageReducer,
 });
 

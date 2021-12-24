@@ -221,7 +221,7 @@ text {
 
 /* Chat Box */
 .chat-box {
-  padding: 0.5rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   border: 2.5px solid #f0f9fc !important;
   transition: 0.6s ease;
@@ -233,6 +233,17 @@ text {
   transition: 0.6s ease;
 }
 
+.conversation-box {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  transition: 0.4s ease;
+}
+
+.conversation-box:hover {
+  background: #28b8ea;
+  transition: 0.4s ease;
+}
 /* Small devices (landscape phones, 544px and up) */
 /* @media (min-width: 544px) {
   h3 {

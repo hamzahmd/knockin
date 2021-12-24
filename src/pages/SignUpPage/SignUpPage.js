@@ -1,13 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/knockin-logo.png';
 import eye from '../../assets/svgs/eye.svg';
 import CrossEye from '../../assets/svgs/cross-eye.svg';
 import SignUp from '../../assets/images/sign-up-min.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../actions/userActions';
 
 const SignUpPage = () => {
   const [eyeBtn, setEyeBtn] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [emailAddress, setEmailAddress] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [role, setRole] = useState('');
+  const [companyName, setCompanyName] = useState('');
+
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const userRegister = useSelector((state) => state.userRegister);
+  const { loading, error, userInfo } = userRegister;
+
+  useEffect(() => {
+    if (userInfo) {
+    }
+  }, [userInfo]);
+
+  const CreateAccount = (e) => {
+    e.preventDefault();
+    var isPrimaryAgent;
+    role === 'Agent' ? (isPrimaryAgent = true) : (isPrimaryAgent = false);
+    dispatch(
+      register(
+        firstName,
+        lastName,
+        emailAddress,
+        phoneNumber,
+        role,
+        isPrimaryAgent
+      )
+    );
+
+    setFirstName('');
+    setLastName('');
+    setEmailAddress('');
+    setPhoneNumber('');
+    setRole('');
+    setCompanyName('');
+    setPassword('');
+  };
+
   return (
     <div className='container-fluid'>
       <div className='row'>
@@ -51,28 +94,49 @@ const SignUpPage = () => {
                 width: '9rem',
               }}
             />
-            <form className='my-3'>
+            <form onSubmit={CreateAccount} className='my-3'>
               <div className='row'>
                 <div className='col-md-6 my-2'>
                   <p className='fs-6 m-0 my-1 text-secondary'>First Name</p>
-                  <input type='text' className='custom-form-input' />
+                  <input
+                    type='text'
+                    className='custom-form-input'
+                    required
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  />
                 </div>
                 <div className='col-md-6 my-2'>
                   <p className='fs-6 m-0 my-1 text-secondary'>Last Name</p>
-                  <input type='text' className='custom-form-input' />
+                  <input
+                    type='text'
+                    className='custom-form-input'
+                    required
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  />
                 </div>
               </div>
 
               <div className='row'>
                 <div className='col-md-6 my-2'>
                   <p className='fs-6 m-0 my-1 text-secondary'>Phone Number</p>
-                  <input type='tel' className='custom-form-input' />
+                  <input
+                    type='tel'
+                    className='custom-form-input'
+                    required
+                    value={phoneNumber}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
+                  />
                 </div>
                 <div className='col-md-6 my-2 position-relative'>
                   <p className='fs-6 m-0 my-1 text-secondary'>Password</p>
                   <input
                     type={eyeBtn ? 'text' : 'password'}
+                    required
                     className='custom-form-input'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <a
                     onClick={(e) => {
@@ -89,7 +153,13 @@ const SignUpPage = () => {
               </div>
               <div className='col-md-6 my-2 w-100'>
                 <p className='fs-6 m-0 my-1 text-secondary'>Work Mail</p>
-                <input type='email' className='custom-form-input' />
+                <input
+                  type='email'
+                  className='custom-form-input'
+                  required
+                  value={emailAddress}
+                  onChange={(e) => setEmailAddress(e.target.value)}
+                />
               </div>
 
               <div className='row'>
@@ -100,23 +170,29 @@ const SignUpPage = () => {
                   <select
                     type='select'
                     className='custom-form-input custom-select'
+                    onChange={(e) => setRole(e.target.value)}
+                    value={role}
                   >
-                    <option value='Seller' selected>
-                      Seller
-                    </option>
+                    <option value=''>Select Role</option>
                     <option value='Agent'>Agent</option>
+                    <option value='Seller'>Seller</option>
                     <option value='Buyer'>Buyer</option>
                   </select>
                 </div>
                 <div className='col-md-6 my-2'>
                   <p className='fs-6 m-0 my-1 text-secondary'>Company Name</p>
-                  <input type='text' className='custom-form-input' />
+                  <input
+                    type='text'
+                    className='custom-form-input'
+                    value={companyName}
+                    onChange={(e) => setCompanyName(e.target.value)}
+                  />
                 </div>
               </div>
 
               <div className='col-md-6 my-4 w-100'>
-                <input type='checkbox' class='form-check-input' />
-                <text className='fs-6 m-0 mx-3 my-1 text-secondary'>
+                <input type='checkbox' className='form-check-input' required />
+                <span className='fs-6 m-0 mx-3 my-1 text-secondary'>
                   I agree with all{' '}
                   <Link
                     to='/signup'
@@ -134,14 +210,23 @@ const SignUpPage = () => {
                     Privacy Policies
                   </Link>{' '}
                   of Knockin.
-                </text>
+                </span>
               </div>
+              {loading && (
+                <div className=' my-4'>
+                  <div className='spinner-grow' role='status'>
+                    <span className='sr-only'></span>
+                  </div>
+                </div>
+              )}
+              {error && (
+                <div className='alert alert-danger' role='alert'>
+                  {error}
+                </div>
+              )}
 
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate('/signup');
-                }}
+                type='submit'
                 className='btn btn-info '
                 style={{
                   borderRadius: '0.5rem',

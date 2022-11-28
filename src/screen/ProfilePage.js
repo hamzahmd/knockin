@@ -72,7 +72,7 @@ const ProfilePage = () => {
             </Link>
           </div>
           <div className='position-relative mt-2 right-nav'>
-            <a
+            <div
               onClick={(e) => {
                 e.preventDefault();
               }}
@@ -84,7 +84,7 @@ const ProfilePage = () => {
               }}
             >
               <img src={search} alt='search' />
-            </a>
+            </div>
             <input type='text ' className='search-bar' placeholder='Search..' />
             <Link to='/chat' className='mx-2'>
               <img src={bell} alt='bell' />
@@ -104,7 +104,7 @@ const ProfilePage = () => {
             borderRadius: '1rem',
           }}
         >
-          <a
+          <div
             style={{
               position: 'absolute',
               zIndex: '6',
@@ -114,7 +114,7 @@ const ProfilePage = () => {
             }}
           >
             <img src={cross} alt='cross' />
-          </a>
+          </div>
           <div
             style={{
               position: 'absolute',

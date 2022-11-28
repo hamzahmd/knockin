@@ -87,7 +87,7 @@ const PropertiesScreen = () => {
             </Link>
           </div>
           <div className='position-relative mt-2 right-nav'>
-            <a
+            <div
               onClick={(e) => {
                 e.preventDefault();
               }}
@@ -99,7 +99,7 @@ const PropertiesScreen = () => {
               }}
             >
               <img src={search} alt='search' />
-            </a>
+            </div>
             <input type='text ' className='search-bar' placeholder='Search..' />
             <Link to='/chat' className='mx-2'>
               <img src={bell} alt='bell' />
@@ -119,7 +119,7 @@ const PropertiesScreen = () => {
             borderRadius: '1rem',
           }}
         >
-          <a
+          <div
             style={{
               position: 'absolute',
               zIndex: '6',
@@ -129,7 +129,7 @@ const PropertiesScreen = () => {
             }}
           >
             <img src={cross} alt='cross' />
-          </a>
+          </div>
           <div
             style={{
               position: 'absolute',
@@ -312,7 +312,7 @@ const PropertiesScreen = () => {
                       height: '100%',
                     }}
                   >
-                    <a
+                    <div
                       className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
                       style={{
                         border: '1px solid #e6e6e6',
@@ -326,14 +326,14 @@ const PropertiesScreen = () => {
                       <div>
                         <img src={arrowdown} alt='arrow' draggable='false' />
                       </div>
-                    </a>
+                    </div>
                     <div>
-                      <a className='pointing mx-2'>
+                      <div className='pointing mx-2'>
                         <img src={edit} alt='edit' draggable='false' />
-                      </a>
-                      <a className='pointing mx-1'>
+                      </div>
+                      <div className='pointing mx-1'>
                         <img src={trash} alt='trash' draggable='false' />
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -384,7 +384,7 @@ const PropertiesScreen = () => {
                       height: '100%',
                     }}
                   >
-                    <a
+                    <div
                       className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
                       style={{
                         border: '1px solid #e6e6e6',
@@ -398,14 +398,14 @@ const PropertiesScreen = () => {
                       <div>
                         <img src={arrowdown} alt='arrow' draggable='false' />
                       </div>
-                    </a>
+                    </div>
                     <div>
-                      <a className='pointing mx-2'>
+                      <div className='pointing mx-2'>
                         <img src={edit} alt='edit' draggable='false' />
-                      </a>
-                      <a className='pointing mx-1'>
+                      </div>
+                      <div className='pointing mx-1'>
                         <img src={trash} alt='trash' draggable='false' />
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -456,7 +456,7 @@ const PropertiesScreen = () => {
                       height: '100%',
                     }}
                   >
-                    <a
+                    <div
                       className='pointing px-3 py-2 d-flex justify-content-between align-items-center text-decoration-none'
                       style={{
                         border: '1px solid #e6e6e6',
@@ -470,14 +470,14 @@ const PropertiesScreen = () => {
                       <div>
                         <img src={arrowdown} alt='arrow' draggable='false' />
                       </div>
-                    </a>
+                    </div>
                     <div>
-                      <a className='pointing mx-2'>
+                      <div className='pointing mx-2'>
                         <img src={edit} alt='edit' draggable='false' />
-                      </a>
-                      <a className='pointing mx-1'>
+                      </div>
+                      <div className='pointing mx-1'>
                         <img src={trash} alt='trash' draggable='false' />
-                      </a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -488,39 +488,39 @@ const PropertiesScreen = () => {
               <nav aria-label='Page navigation example'>
                 <ul className='pagination'>
                   <li className='page-item'>
-                    <a className='page-link pointing' aria-label='Previous'>
+                    <div className='page-link pointing' aria-label='Previous'>
                       <span aria-hidden='true'>&laquo;</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing'>
+                    <div className='page-link pointing'>
                       <span aria-hidden='true'>1</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing'>
+                    <div className='page-link pointing'>
                       <span aria-hidden='true'>2</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing'>
+                    <div className='page-link pointing'>
                       <span aria-hidden='true'>3</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing'>
+                    <div className='page-link pointing'>
                       <span aria-hidden='true'>4</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing bg-info text-white'>
+                    <div className='page-link pointing bg-info text-white'>
                       <span aria-hidden='true'>5</span>
-                    </a>
+                    </div>
                   </li>
                   <li className='page-item'>
-                    <a className='page-link pointing' aria-label='Next'>
+                    <div className='page-link pointing' aria-label='Next'>
                       <span aria-hidden='true'>&raquo;</span>
-                    </a>
+                    </div>
                   </li>
                 </ul>
               </nav>

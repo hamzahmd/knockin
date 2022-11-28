@@ -139,7 +139,7 @@ const SignUpPage = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
-                  <a
+                  <div
                     onClick={(e) => {
                       e.preventDefault();
                       setEyeBtn(!eyeBtn);
@@ -149,7 +149,7 @@ const SignUpPage = () => {
                     <div>
                       <img src={!eyeBtn ? eye : CrossEye} alt='password-eye' />
                     </div>
-                  </a>
+                  </div>
                 </div>
               </div>
               <div className='col-md-6 my-2 w-100'>

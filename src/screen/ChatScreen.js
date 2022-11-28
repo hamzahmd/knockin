@@ -61,13 +61,13 @@ const ChatScreen = () => {
     if (userInfo) {
       dispatch(getUserAction());
     }
-  }, [userInfo, navigate]);
+  }, [userInfo, navigate, dispatch]);
 
   useEffect(() => {
     if (user) {
       dispatch(getConversationsAction());
     }
-  }, [user]);
+  }, [user, dispatch]);
 
   const sideNav1 = () => {
     setNavOpener1(!navOpener1);
@@ -131,7 +131,7 @@ const ChatScreen = () => {
             </Link>
           </div>
           <div className='position-relative mt-2 right-nav'>
-            <a
+            <div
               onClick={(e) => {
                 e.preventDefault();
               }}
@@ -143,7 +143,7 @@ const ChatScreen = () => {
               }}
             >
               <img src={search} alt='search' draggable='false' />
-            </a>
+            </div>
             <input type='text ' className='search-bar' placeholder='Search..' />
             <Link to='/chat' className='mx-2'>
               <img src={bell} alt='bell' draggable='false' />
@@ -163,7 +163,7 @@ const ChatScreen = () => {
             borderRadius: '1rem',
           }}
         >
-          <a
+          <div
             style={{
               position: 'absolute',
               zIndex: '6',
@@ -173,7 +173,7 @@ const ChatScreen = () => {
             }}
           >
             <img src={cross} alt='cross' draggable='false' />
-          </a>
+          </div>
           <div
             style={{
               position: 'absolute',
@@ -229,7 +229,7 @@ const ChatScreen = () => {
             >
               <h4 className='fs-3 my-3'>Properties</h4>
               <div className='position-relative my-2 right-nav'>
-                <a
+                <div
                   onClick={(e) => {
                     e.preventDefault();
                   }}
@@ -241,7 +241,7 @@ const ChatScreen = () => {
                   }}
                 >
                   <img src={search} alt='search' draggable='false' />
-                </a>
+                </div>
                 <input
                   type='text '
                   className='search-bar bg-light w-100'
@@ -250,7 +250,10 @@ const ChatScreen = () => {
               </div>
               {/* Chat links */}
               <div className='bg-light chat-box my-3'>
-                <a onClick={sideNav1} className='pointing text-decoration-none'>
+                <div
+                  onClick={sideNav1}
+                  className='pointing text-decoration-none'
+                >
                   <div className='d-flex align-items-center justify-content-between  '>
                     <div className='d-flex align-items-center'>
                       <div>
@@ -281,14 +284,14 @@ const ChatScreen = () => {
                       />
                     </div>
                   </div>
-                </a>
+                </div>
                 {navOpener1 &&
                   conversations &&
                   conversations.length > 0 &&
                   conversations[0].property.conversations.map(
                     (conversation, index) => (
                       <div className='mt-3' key={index}>
-                        <a
+                        <div
                           className='text-decoration-none pointing '
                           key={index}
                           onClick={() => {
@@ -304,7 +307,7 @@ const ChatScreen = () => {
                               {conversation.firstName} {conversation.lastName}
                             </h5>
                           </div>
-                        </a>
+                        </div>
                       </div>
                     )
                   )}
@@ -312,7 +315,10 @@ const ChatScreen = () => {
 
               {/* chat link2 */}
               <div className='bg-light chat-box my-3'>
-                <a onClick={sideNav2} className='pointing text-decoration-none'>
+                <div
+                  onClick={sideNav2}
+                  className='pointing text-decoration-none'
+                >
                   <div className='d-flex align-items-center justify-content-between  '>
                     <div className='d-flex align-items-center'>
                       <div>
@@ -343,14 +349,14 @@ const ChatScreen = () => {
                       />
                     </div>
                   </div>
-                </a>
+                </div>
                 {navOpener2 &&
                   conversations &&
                   conversations.length > 0 &&
                   conversations[1].property.conversations.map(
                     (conversation, index) => (
                       <div className='mt-3' key={index}>
-                        <a
+                        <div
                           className='text-decoration-none pointing '
                           key={index}
                           onClick={() => {
@@ -363,7 +369,7 @@ const ChatScreen = () => {
                               {conversation.firstName} {conversation.lastName}
                             </h5>
                           </div>
-                        </a>
+                        </div>
                       </div>
                     )
                   )}
@@ -395,15 +401,15 @@ const ChatScreen = () => {
                   </div>
                 </div>
                 <div>
-                  <a className='mx-1 pointing'>
+                  <div className='mx-1 pointing'>
                     <img src={call} alt='call' draggable='false' />
-                  </a>
-                  <a className='mx-1 pointing'>
+                  </div>
+                  <div className='mx-1 pointing'>
                     <img src={video} alt='msg' draggable='false' />
-                  </a>
-                  <a className='mx-1 pointing'>
+                  </div>
+                  <div className='mx-1 pointing'>
                     <img src={edit} alt='edit' draggable='false' />
-                  </a>
+                  </div>
                 </div>
               </div>
               <hr />
@@ -553,29 +559,29 @@ const ChatScreen = () => {
                   <hr />
                   <div className='d-flex justify-content-between'>
                     <div>
-                      <a className='pointing px-2'>
+                      <div className='pointing px-2'>
                         <img src={stylefont0} alt='style0' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont1} alt='style1' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont2} alt='style2' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont3} alt='style3' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont4} alt='style4' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont5} alt='style5' draggable='false' />
-                      </a>
-                      <a className='pointing px-2'>
+                      </div>
+                      <div className='pointing px-2'>
                         <img src={stylefont6} alt='style6' draggable='false' />
-                      </a>
+                      </div>
                     </div>
-                    <a
+                    <div
                       className='pointing'
                       onClick={() => {
                         const conversationId =
@@ -592,7 +598,7 @@ const ChatScreen = () => {
                       }}
                     >
                       <img src={send} alt='send' draggable='false' />
-                    </a>
+                    </div>
                   </div>
                 </div>
               </form>
